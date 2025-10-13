@@ -1,13 +1,20 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int seconds;
-    printf("Entrez un nombre de secondes : ");
-    scanf("%d", &seconds);
-    int hours = seconds / 3600;
-    int minutes = (seconds % 3600) / 60;
-    int remaining_seconds = seconds % 60;
-    printf("%d heures, %d minutes et %d secondes\n", hours, minutes, remaining_seconds);
+    float C, t, M;  
+    int n;
+
+    printf("Montant du pret (C) : ");
+    scanf("%f", &C);
+    printf("Taux d'interet annuel (en pourcentage) : ");
+    scanf("%f", &t);
+    printf("Duree du pret (en annees) : ");
+    scanf("%d", &n);
+
+    M = (C * (t / 12)) / (1 - pow(1 + (t / 12), -n * 12));
+
+    printf("La mensualite du pret est : %.2f euros\n", M);
 
     return 0;
 }
