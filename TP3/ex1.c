@@ -3,7 +3,7 @@
 int main () {
     int n;
     int width, max_height;
-    char img[15][15];
+    char img[100][100];
     printf("Entrez une taille n entre 5 et 10 : ");
     scanf("%d", &n);
     if (n>=5 && n<=10) {
@@ -14,6 +14,12 @@ int main () {
                 img[i][j] = ' ';
             }
         }
-    }
+        for (int i=0; i<width; i++) {
+            for (int j=0; j<max_height; j++) {
+                printf("%c",img[i][j]);
+            }
+            printf("\n");
+        }
     return 0;
+    }
 }
