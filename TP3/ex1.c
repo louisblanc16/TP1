@@ -9,5 +9,11 @@ int main () {
     if (n>=5 && n<=10) {
         width = n * n;
         max_height = 3 * n - 1;
+        for (int i=0; i<width; i++) {
+            for (int j=0; j<max_height; j++) {
+                img[i][j] = ' ';
+            }
+        }
     }
+    return 0;
 }
