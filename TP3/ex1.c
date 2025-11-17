@@ -19,13 +19,40 @@ int main() {
             for (int j = mid - i; j <= mid + i; j++) {
                 if (j == mid - i || j == mid + i) {
                     img[i][j] = 'A';
-                } else {
+                }
+                else {
                     img[i][j] = 'S';
                 }
             }
             if (i == n - 1) {
-                img[i][mid - i - 1] = '_';
-                img[i][mid + i + 1] = '_';
+                for (int j = 0; j <= mid - n; j++) {
+                    img[n - 1][j] = '_';
+                }
+                for (int j = mid + n; j < width; j++) {
+                    img[n - 1][j] = '_';
+                }
+            }
+        }
+        for (int j = 0; j < width; j++) {
+            if (j == 0 || j == width - 1) {
+                img[n][j] = '.';
+            }
+            else {
+                img[n][j] = 'S';
+            }
+        }
+        for (int i = n + 1; i < n + (n - 1); i++) {
+            int k = i - n; 
+            for (int j = 0; j < width; j++) {
+                if (j == k || j == width - 1 - k) {
+                    img[i][j] = '.';       
+                }
+                else if (j > k && j < width - 1 - k) {
+                    img[i][j] = 'S';       
+                }
+                else {
+                    img[i][j] = ' ';    
+                }
             }
         }
         for (int i = 0; i < max_height; i++) {
