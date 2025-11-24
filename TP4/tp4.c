@@ -75,6 +75,16 @@ float calculerMoyenneGenerale(int notes[][3], int nbEleves) {
     return somme / nbEleves;
 }
 
+int trouverMeilleureNoteControle(int notes[][3], int nbEleves, int indiceControle) {
+    int max = notes[0][indiceControle];
+    for (int i = 1; i < nbEleves; i++) {
+        if (notes[i][indiceControle] > max) {
+            max = notes[i][indiceControle];
+        }
+    }
+    return max;
+}
+
 int main() {
     int notes[30][3];
     int nbEleves = 0;
