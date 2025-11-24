@@ -11,7 +11,15 @@ void afficherMenu() {
     printf("0. Quitter\n");
 }
 
+int lireChoix() {
+    int choix;
+    printf("Votre choix : ");
+    scanf("%d", &choix);
+    return choix;
+}
+
 int main() {
     afficherMenu();
+    int choix = lireChoix();
     return 0;
 }
