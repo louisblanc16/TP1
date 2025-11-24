@@ -67,6 +67,14 @@ float calculerMoyenneEleve(int notes[][3], int indiceEleve) {
     return somme / 3.0;
 }
 
+float calculerMoyenneGenerale(int notes[][3], int nbEleves) {
+    float somme = 0;
+    for (int i = 0; i < nbEleves; i++) {
+        somme += calculerMoyenneEleve(notes, i);
+    }
+    return somme / nbEleves;
+}
+
 int main() {
     int notes[30][3];
     int nbEleves = 0;
@@ -108,6 +116,15 @@ int main() {
                 }
                 float moyenne = calculerMoyenneEleve(notes, indice - 1);
                 printf("Moyenne de l'eleve %d : %.2f\n", indice, moyenne);
+            }
+        }
+        else if (choix == 5) {
+            if (nbEleves == 0) {
+                printf("Vous devez d'abord saisir le nombre d'eleves.\n");
+            }
+            else {
+                float moyGen = calculerMoyenneGenerale(notes, nbEleves);
+                printf("Moyenne generale de la classe: %.2f\n", moyGen);
             }
         }
         else if (choix == 0) {
