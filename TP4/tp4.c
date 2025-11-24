@@ -85,6 +85,17 @@ int trouverMeilleureNoteControle(int notes[][3], int nbEleves, int indiceControl
     return max;
 }
 
+void afficherMeilleuresNotes(int notes[][3], int nbEleves) {
+
+    int meilleurC1 = trouverMeilleureNoteControle(notes, nbEleves, 0);
+    int meilleurC2 = trouverMeilleureNoteControle(notes, nbEleves, 1);
+    int meilleurC3 = trouverMeilleureNoteControle(notes, nbEleves, 2);
+
+    printf("Meilleure note au controle 1 : %d\n", meilleurC1);
+    printf("Meilleure note au controle 2 : %d\n", meilleurC2);
+    printf("Meilleure note au controle 3 : %d\n", meilleurC3);
+}
+
 int main() {
     int notes[30][3];
     int nbEleves = 0;
@@ -135,6 +146,14 @@ int main() {
             else {
                 float moyGen = calculerMoyenneGenerale(notes, nbEleves);
                 printf("Moyenne generale de la classe: %.2f\n", moyGen);
+            }
+        }
+        else if (choix == 6) {
+            if (nbEleves == 0) {
+                printf("Vous devez d'abord saisir le nombre d'eleves.\n");
+            }
+            else {
+                afficherMeilleuresNotes(notes, nbEleves);
             }
         }
         else if (choix == 0) {
