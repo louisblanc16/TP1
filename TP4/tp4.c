@@ -18,16 +18,14 @@ int lireChoix() {
     return choix;
 }
 
-int saisirNombreEleves () {
+int saisirNombreEleves() {
     int nbEleves;
     printf("Entrez un nombre d'eleves (entre 1 et 30) : ");
     scanf("%d", &nbEleves);
-    if (nbEleves < 1 || nbEleves > 30) {
-        while (nbEleves < 1 || nbEleves > 30) {
-            printf("Valeur invalide.\n");
-            printf("Entrez un nombre d'eleves (entre 1 et 30) : ");
-            scanf("%d", &nbEleves);
-        }
+    while (nbEleves < 1 || nbEleves > 30) {
+        printf("Valeur invalide.\n");
+        printf("Entrez un nombre d'eleves (entre 1 et 30) : ");
+        scanf("%d", &nbEleves);
     }
     return nbEleves;
 }
@@ -49,6 +47,18 @@ void saisirNotes(int notes[][3], int nb) {
     }
 }
 
+void afficherNotes(int notes[][3], int nbEleves) {
+    printf("Tableau des notes\n");
+    printf("Eleve   C1   C2   C3\n");
+    for (int i = 0; i < nbEleves; i++) {
+        printf("%5d   %2d   %2d   %2d\n",
+               i + 1,
+               notes[i][0],
+               notes[i][1],
+               notes[i][2]);
+    }
+}
+
 int main() {
     int notes[30][3];
     int nbEleves = 0;
@@ -62,9 +72,15 @@ int main() {
         else if (choix == 2) {
             if (nbEleves == 0) {
                 printf("Vous devez d'abord saisir le nombre d'eleves.\n");
-            }
-            else {
+            } else {
                 saisirNotes(notes, nbEleves);
+            }
+        }
+        else if (choix == 3) {
+            if (nbEleves == 0) {
+                printf("Vous devez d'abord saisir le nombre d'eleves.\n");
+            } else {
+                afficherNotes(notes, nbEleves);
             }
         }
         else if (choix == 0) {
