@@ -18,8 +18,23 @@ int lireChoix() {
     return choix;
 }
 
+int saisirNombreEleves () {
+    int nbEleves;
+    printf("Entrez un nombre d'eleves (entre 1 et 30) : ");
+    scanf("%d", &nbEleves);
+    if (nbEleves < 1 || nbEleves > 30) {
+        while (nbEleves < 1 || nbEleves > 30) {
+            printf("Valeur invalide.\n");
+            printf("Entrez un nombre d'eleves (entre 1 et 30) : ");
+            scanf("%d", &nbEleves);
+        }
+    }
+    return nbEleves;
+}
+
 int main() {
     afficherMenu();
     int choix = lireChoix();
+    int nbEleves = saisirNombreEleves();
     return 0;
 }
