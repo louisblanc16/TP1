@@ -59,6 +59,14 @@ void afficherNotes(int notes[][3], int nbEleves) {
     }
 }
 
+float calculerMoyenneEleve(int notes[][3], int indiceEleve) {
+    float somme = 0;
+    for (int j = 0; j < 3; j++) {
+        somme += notes[indiceEleve][j];
+    }
+    return somme / 3.0;
+}
+
 int main() {
     int notes[30][3];
     int nbEleves = 0;
@@ -72,15 +80,34 @@ int main() {
         else if (choix == 2) {
             if (nbEleves == 0) {
                 printf("Vous devez d'abord saisir le nombre d'eleves.\n");
-            } else {
+            }
+            else {
                 saisirNotes(notes, nbEleves);
             }
         }
         else if (choix == 3) {
             if (nbEleves == 0) {
                 printf("Vous devez d'abord saisir le nombre d'eleves.\n");
-            } else {
+            }
+            else {
                 afficherNotes(notes, nbEleves);
+            }
+        }
+        else if (choix == 4) {
+            if (nbEleves == 0) {
+                printf("Vous devez d'abord saisir le nombre d'eleves.\n");
+            }
+            else {
+                int indice;
+                printf("Entrez l'indice de l'eleve (1 a %d): ", nbEleves);
+                scanf("%d", &indice);
+                while (indice < 1 || indice > nbEleves) {
+                    printf("Indice invalide.\n");
+                    printf("Entrez l'indice de l'eleve (1 a %d): ", nbEleves);
+                    scanf("%d", &indice);
+                }
+                float moyenne = calculerMoyenneEleve(notes, indice - 1);
+                printf("Moyenne de l'eleve %d : %.2f\n", indice, moyenne);
             }
         }
         else if (choix == 0) {
