@@ -13,6 +13,16 @@ int saisir_montant() {
     return montant;
 }
 
+int montant_valide(int montant) {
+    if (montant < 5 || montant > 1000) {
+        return 0;
+    }
+    if (montant % 5 != 0) {
+        return 0;
+    }
+    return 1;
+}
+
 int main() {
     int choix = 0;
     while (choix != 2) {
@@ -24,6 +34,10 @@ int main() {
         }
         else if (choix == 1) {
             int montant = saisir_montant();
+            if (montant_valide(montant) == 0) {
+                printf("Erreur : montant invalide.\n");
+                printf("Le montant doit etre entre 5 euros et 1000 euros, divisible par 5.\n");
+            }
         }
         else {
             printf("Choix invalide.\n");
