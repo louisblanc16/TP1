@@ -48,15 +48,40 @@ void ajouterConsommation(int tab[7]) {
 }
 
 void afficheResume(int tab[7]) {
+    int hB = humeurBonbons(tab[2]);
+    int hL = humeurLegumes(tab[4]);
+    int hF = humeurFruits(tab[5]);
+    char emoB[4][10] = {"😇", "🙂", "😕", "👿"};
+    char emoL[3][10] = {"😭", "🙂", "😎"};
+    char emoF[3][10] = {"😅", "🙂", "😀"};
     printf("========== Resume du jour ==========\n");
-    printf("Eau       : %d\n", tab[0]);
-    printf("Cafe      : %d\n", tab[1]);
-    printf("Bonbons   : %d\n", tab[2]);
-    printf("Gateau    : %d\n", tab[3]);
-    printf("Legumes   : %d\n", tab[4]);
-    printf("Fruits    : %d\n", tab[5]);
-    printf("Proteines : %d\n", tab[6]);
+    printf("Eau       : %d 💧\n", tab[0]);
+    printf("Cafe      : %d ☕\n", tab[1]);
+    printf("Bonbons   : %d 🍬 %s\n", tab[2], emoB[hB]);
+    printf("Gateau    : %d 🍰\n", tab[3]);
+    printf("Legumes   : %d 🥦 %s\n", tab[4], emoL[hL]);
+    printf("Fruits    : %d 🍎 %s\n", tab[5], emoF[hF]);
+    printf("Proteines : %d 🍗\n", tab[6]);
     printf("====================================\n");
+    }
+
+int humeurBonbons(int nb) {
+    if (nb >= 0 && nb <= 3) return 0;
+    else if (nb >= 4 && nb <= 7) return 1;
+    else if (nb >= 8 && nb <= 12) return 2;
+    else return 3;
+}
+
+int humeurLegumes(int nb) {
+    if (nb >= 0 && nb <= 2) return 0;
+    else if (nb >= 3 && nb <= 5) return 1;
+    else return 2;
+}
+
+int humeurFruits(int nb) {
+    if (nb >= 0 && nb <= 1) return 0;
+    else if (nb == 2) return 1;
+    else return 2;
 }
 
 int charger(int tab[7]) {
