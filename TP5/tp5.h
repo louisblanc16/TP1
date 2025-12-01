@@ -3,5 +3,7 @@
 
 void afficherMenu();
 int lireChoix();
+void initialiser(int tab[7]);
+void ajouterConsommation(int tab[7]);
 
 #endif
