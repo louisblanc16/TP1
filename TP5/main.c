@@ -6,6 +6,7 @@ int main() {
     setlocale(LC_ALL, "");
     int conso[7];
     if (!charger(conso)) {
+        printf("Aucune sauvegarde trouvee\n");
         initialiser(conso);
     }
     int choix = 0;
