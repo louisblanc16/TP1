@@ -3,9 +3,11 @@
 #include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "utf");
-    int conso[7] = {0};
-    initialiser(conso);
+    setlocale(LC_ALL, "");
+    int conso[7];
+    if (!charger(conso)) {
+        initialiser(conso);
+    }
     int choix = 0;
     while (choix != 3) {
         afficherMenu();
