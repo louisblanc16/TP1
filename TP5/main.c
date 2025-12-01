@@ -21,7 +21,12 @@ int main() {
             afficheResume(conso);
         }
         else if (choix == 3) {
-            printf("Au revoir !\n");
+            if (sauvegarder(conso)) {
+                printf("Donnees sauvegardees.\n");
+            }
+            else {
+            printf("Erreur de sauvegarde !\n");
+            }
         }
         else {
             printf("Choix invalide\n");

@@ -73,3 +73,16 @@ int charger(int tab[7]) {
     fclose(f);
     return 1;
 }
+
+int sauvegarder(int tab[7]) {
+    FILE *f =fopen("consommation.txt", "w");
+    if (f==NULL) {
+        return 0;
+    }
+    for (int i = 0; i<7;i++) {
+        fprintf(f, "%d ", tab[i]);
+    }
+    fprintf(f,"\n");
+    fclose(f);
+    return 1;
+}
