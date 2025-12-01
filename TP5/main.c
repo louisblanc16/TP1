@@ -16,6 +16,7 @@ int main() {
         }
         else if (choix == 2) {
             printf("Resume du jour : \n");
+            afficheResume(conso);
         }
         else if (choix == 3) {
             printf("Au revoir !\n");

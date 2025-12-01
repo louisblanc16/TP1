@@ -46,3 +46,15 @@ void ajouterConsommation(int tab[7]) {
     tab[choix-1] += quantite;
     printf("Consommation mise a jour.\n");
 }
+
+void afficheResume(int tab[7]) {
+    printf("========== Resume du jour ==========\n");
+    printf("Eau       : %d\n", tab[0]);
+    printf("Cafe      : %d\n", tab[1]);
+    printf("Bonbons   : %d\n", tab[2]);
+    printf("Gateau    : %d\n", tab[3]);
+    printf("Legumes   : %d\n", tab[4]);
+    printf("Fruits    : %d\n", tab[5]);
+    printf("Proteines : %d\n", tab[6]);
+    printf("====================================\n");
+}
