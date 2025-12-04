@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
+#include <windows.h>
 #include "tp5.h"
 
 void afficherMenu() {
@@ -55,13 +56,27 @@ void afficheResume(int tab[7]) {
     char emoL[3][10] = {"😭", "🙂", "😎"};
     char emoF[3][10] = {"😅", "🙂", "😀"};
     printf("========== Resume du jour ==========\n");
-    printf("Eau       : %d 💧\n", tab[0]);
-    printf("Cafe      : %d ☕\n", tab[1]);
-    printf("Bonbons   : %d 🍬 %s\n", tab[2], emoB[hB]);
-    printf("Gateau    : %d 🍰\n", tab[3]);
-    printf("Legumes   : %d 🥦 %s\n", tab[4], emoL[hL]);
-    printf("Fruits    : %d 🍎 %s\n", tab[5], emoF[hF]);
-    printf("Proteines : %d 🍗\n", tab[6]);
+    printf("Eau       : %d 💧 ", tab[0]);
+    afficherBarre(tab[0], 20);
+    printf("\n");
+    printf("Cafe      : %d ☕ ", tab[1]);
+    afficherBarre(tab[1], 20);
+    printf("\n");
+    printf("Bonbons   : %d 🍬 %s ", tab[2], emoB[hB]);
+    afficherBarre(tab[2], 20);
+    printf("\n");
+    printf("Gateau    : %d 🍰 ", tab[3]);
+    afficherBarre(tab[3], 20);
+    printf("\n");
+    printf("Legumes   : %d 🥦 %s ", tab[4], emoL[hL]);
+    afficherBarre(tab[4], 20);
+    printf("\n");
+    printf("Fruits    : %d 🍎 %s ", tab[5], emoF[hF]);
+    afficherBarre(tab[5], 20);
+    printf("\n");
+    printf("Proteines : %d 🍗 ", tab[6]);
+    afficherBarre(tab[6], 20);
+    printf("\n");
     printf("====================================\n");
     }
 
@@ -82,6 +97,19 @@ int humeurFruits(int nb) {
     if (nb >= 0 && nb <= 1) return 0;
     else if (nb == 2) return 1;
     else return 2;
+}
+
+void afficherBarre(int valeur, int max) {
+    if (max <= 0) max=1;
+    if (valeur < 0) valeur=0;
+    if (valeur > max) valeur=max;
+    int casesPleines = (valeur*10) / max;
+    for (int i=0; i<10; i++) {
+        if (i<casesPleines)
+            printf("█");
+        else
+            printf("░");
+    }
 }
 
 int charger(int tab[7]) {
@@ -110,4 +138,11 @@ int sauvegarder(int tab[7]) {
     fprintf(f,"\n");
     fclose(f);
     return 1;
+}
+
+void utf8()
+{
+    SetConsoleOutputCP(CP_UTF8);  
+    SetConsoleCP(CP_UTF8);        
+    setlocale(LC_ALL, ".UTF-8");
 }

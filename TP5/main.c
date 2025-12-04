@@ -3,7 +3,7 @@
 #include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "");
+    utf8();
     int conso[7];
     if (!charger(conso)) {
         printf("Aucune sauvegarde trouvee\n");
