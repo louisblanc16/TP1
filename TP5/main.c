@@ -5,12 +5,13 @@
 int main() {
     utf8();
     int conso[7];
+    int objectifs[7] = {8, 0, 0, 0, 5, 3, 2};
     if (!charger(conso)) {
         printf("Aucune sauvegarde trouvee\n");
         initialiser(conso);
     }
     int choix = 0;
-    while (choix != 3) {
+    while (choix != 4) {
         afficherMenu();
         choix = lireChoix();
         if (choix == 1) {
@@ -22,6 +23,9 @@ int main() {
             afficheResume(conso);
         }
         else if (choix == 3) {
+            afficherObjectifsEtScore(conso, objectifs);
+        }
+        else if (choix == 4) {
             if (sauvegarder(conso)) {
                 printf("Donnees sauvegardees.\n");
             }

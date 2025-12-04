@@ -13,5 +13,7 @@ int humeurBonbons(int nb);
 int humeurLegumes(int nb);
 int humeurFruits(int nb);
 void afficherBarre(int valeur, int max);
+void afficherObjectifsEtScore(int conso[7], int obj[7]);
+int calculerScoreSante(int conso[7], int obj[7]);
 
 #endif

@@ -9,7 +9,8 @@ void afficherMenu() {
     printf("=====================================\n");
     printf("1. Ajouter une consommation\n");
     printf("2. Afficher le resume du jour\n");
-    printf("3. Sauvegarder et quitter\n");
+    printf("3. Afficher les objectifs et le score\n");
+    printf("4. Sauvegarder et quitter\n");
     printf("Votre choix : ");
 }
 
@@ -138,6 +139,47 @@ int sauvegarder(int tab[7]) {
     fprintf(f,"\n");
     fclose(f);
     return 1;
+}
+
+int calculerScoreSante(int conso[7], int obj[7]) {
+    int score=50;
+    if (conso[0]>=obj[0]) score+=10;
+    if (conso[4]>=obj[4]) score+=10;
+    if (conso[5]>=obj[5]) score+=10;
+    if (conso[6]>=obj[6]) score+=10;
+    if (conso[2]>5) {
+        int malus =(conso[2]-5) *1;
+        if (malus>15) malus=15;
+        score -= malus;
+    }
+    if (conso[1]>3) {
+        int malus=(conso[1]-3)*2;
+        if (malus > 20) malus=20;
+        score -= malus;
+    }
+    if (score<0) score=0;
+    if (score>100) score=100;
+    return score;
+}
+
+void afficherObjectifsEtScore(int conso[7], int obj[7]) {
+    printf("====== Objectifs du jour ======\n");
+    printf("Categorie      Objectif   Atteint ?\n");
+    printf("Eau            : %d        %s\n", obj[0], 
+           (conso[0]>=obj[0]) ? "✔️" : "❌");
+    printf("Cafe           : -        (pas d objectif)\n");
+    printf("Bonbons        : -        (pas d objectif)\n");
+    printf("Gateau         : -        (pas d objectif)\n");
+    printf("Legumes        : %d        %s\n", obj[4], 
+           (conso[4]>= obj[4]) ? "✔️" : "❌");
+    printf("Fruits         : %d        %s\n", obj[5],
+           (conso[5]>=obj[5]) ? "✔️" : "❌");
+    printf("Proteines      : %d        %s\n", obj[6],
+           (conso[6] >=obj[6]) ? "✔️" : "❌");
+    printf("=================================\n");
+    int score = calculerScoreSante(conso, obj);
+    printf("Score de sante du jour : %d / 100\n", score);
+    printf("=================================\n");
 }
 
 void utf8()
