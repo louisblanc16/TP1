@@ -1,23 +1,12 @@
 #ifndef TP3_H
 #define TP3_H
-#include <stdio.h>
-#include <stdlib.h>
 
 typedef struct {
-    char fichier[50];
-    char titre[50];
-    char artiste[30];
-} Chanson;
+    char file[256];
+    char title[256];
+    char artist[256];
+} Song;
 
-typedef struct {
-    char nom[50];
-    int meilleur_score;
-    ListeJoueurs *suivant;
-} ListeJoueurs;
-
-typedef struct {
-    char nom[50];
-    int score;
-} Joueur;
+int load_songs(const char *filename, Song songs[], int max);
 
 #endif
