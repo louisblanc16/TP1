@@ -138,6 +138,18 @@ int load_songs(const char *filename, Song songs[], int max) {
     return count;
 }
 
+void melanger_chansons(Song songs[], int n) {
+    int i;
+
+    for (i = 0; i < n; i++) {
+        int j = rand() % n;
+
+        Song temp = songs[i];
+        songs[i] = songs[j];
+        songs[j] = temp;
+    }
+}
+
 /* -------------------------------------------------- */
 /* PROGRAMME PRINCIPAL                                */
 /* -------------------------------------------------- */

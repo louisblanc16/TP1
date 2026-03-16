@@ -8,5 +8,6 @@ typedef struct {
 } Song;
 
 int load_songs(const char *filename, Song songs[], int max);
+void melanger_chansons(Song songs[], int n);
 
 #endif
