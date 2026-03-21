@@ -48,5 +48,30 @@ int main() {
         }
     }
 
+    printf("\nScore final : %d / %d\n", score, nb);
+
+    int meilleur_score = 0;
+    FILE *f;
+
+    f = fopen("meilleurscore.txt", "r");
+    if (f != NULL) {
+        fscanf(f, "%d", &meilleur_score);
+        fclose(f);
+    }
+
+    if (score > meilleur_score) {
+
+    printf("Nouveau meilleur score !\n");
+
+    f = fopen("mailleurscore.txt", "w");
+    if (f != NULL) {
+        fprintf(f, "%d", score);
+        fclose(f);
+    }
+
+    } else {
+        printf("Meilleur score actuel : %d\n", meilleur_score);
+    }
+
     return 0;
 }
