@@ -13,7 +13,7 @@ int max2(int a, int b) {
 
 int factorielle(int n) {
     int resultat = 1;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i <= n; i++) { //puisqu'on commence à n=1, on doit inclure la valeur de n donc <= et non <
         resultat *= i;
     }
     return resultat;

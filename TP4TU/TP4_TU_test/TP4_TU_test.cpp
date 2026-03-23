@@ -48,5 +48,23 @@ namespace TP4TUtest
 		TEST_METHOD(TestMax4) {
 			Assert::AreEqual(max2(4, 4), 4);
 		}
+
+		TEST_METHOD(TestFact) {
+			Assert::AreEqual(factorielle(0), 1);
+		}
+
+		TEST_METHOD(TestFact2) {
+			Assert::AreEqual(factorielle(1), 1);
+		}
+
+		
+		TEST_METHOD(TestFact3) {
+			Assert::AreEqual(factorielle(4), 24);
+		}
+
+		TEST_METHOD(TestFact4) {
+			Assert::AreEqual(factorielle(5), 120);
+		}
+		//une factorielle négative ne peut exister mathématiquement
 	};
 }
