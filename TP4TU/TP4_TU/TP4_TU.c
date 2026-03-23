@@ -1,4 +1,5 @@
 #include "TP4_TU.h"
+#include <stdlib.h>
 
 int estPair(int n) {
     return n % 2 == 0; //Modification : n%2 == 1 est faux, on vérifie que le reste n%2 == 0;
@@ -12,14 +13,16 @@ int max2(int a, int b) {
 }
 
 int factorielle(int n) {
-    int resultat = 1;
-    for (int i = 1; i <= n; i++) { //puisqu'on commence à n=1, on doit inclure la valeur de n donc <= et non <
+    int resultat = n;
+    for (int i = n; i <= -1; i++) { //on adapte la fonction pour les nombres négatifs en les multipliant jusqu'à -1
         resultat *= i;
     }
     return resultat;
 }
 
 int contientMajuscule(const char* chaine) {
+    if (chaine == NULL)
+        return 0;
     int i = 0;
     while (chaine[i] != '\0') {
         if (chaine[i] >= 'A' && chaine[i] <= 'Z') {

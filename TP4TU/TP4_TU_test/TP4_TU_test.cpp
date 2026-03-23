@@ -65,6 +65,29 @@ namespace TP4TUtest
 		TEST_METHOD(TestFact4) {
 			Assert::AreEqual(factorielle(5), 120);
 		}
-		//une factorielle négative ne peut exister mathématiquement
+		
+		TEST_METHOD(TestFact5) {
+			Assert::AreEqual(factorielle(-3), -6);
+		}
+
+		TEST_METHOD(TestMaj1) {
+			Assert::AreEqual(contientMajuscule("bonjour"), 0);
+		}
+
+		TEST_METHOD(TestMaj2) {
+			Assert::AreEqual(contientMajuscule("BonJour"), 1);
+		}
+
+		TEST_METHOD(TestMaj3) {
+			Assert::AreEqual(contientMajuscule("ABC"), 1);
+		}
+
+		TEST_METHOD(TestMaj4) {
+			Assert::AreEqual(contientMajuscule(""), 0);
+		}
+
+		TEST_METHOD(TestMaj5) {
+			Assert::AreEqual(contientMajuscule(NULL), 0);
+		}
 	};
 }
