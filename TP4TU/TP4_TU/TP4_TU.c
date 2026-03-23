@@ -21,7 +21,7 @@ int factorielle(int n) {
 }
 
 int contientMajuscule(const char* chaine) {
-    if (chaine == NULL)
+    if (chaine == NULL) //on ajoute la vérification
         return 0;
     int i = 0;
     while (chaine[i] != '\0') {
@@ -34,6 +34,8 @@ int contientMajuscule(const char* chaine) {
 }
 
 int divisionExacte(int a, int b) {
+    if (b == 0)
+        return 0;
     return a % b == 0;
 }
 
