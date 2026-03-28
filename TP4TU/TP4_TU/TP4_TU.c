@@ -40,8 +40,9 @@ int divisionExacte(int a, int b) {
 }
 
 int sommeTableau(const int tab[], int taille) {
+    if (tab == NULL || taille <= 0) return 0; //on vérifie que le tableau est plein
     int somme = 0;
-    for (int i = 0; i <= taille; i++) {
+    for (int i = 0; i < taille; i++) { //on prend i = 0 donc on inclut pas la valeur de taille, donc on a i < taille et non <=
         somme += tab[i];
     }
     return somme;

@@ -105,5 +105,33 @@ namespace TP4TUtest
 		TEST_METHOD(TestDiv4) {
 			Assert::AreEqual(divisionExacte(10, 0), 0); //ce cas est dangereux car mathématiquement il est impossible de diviser par zéro
 		}
+
+		TEST_METHOD(TestSomme1) {
+			int tab[] = { 1, 2, 3 };
+			Assert::AreEqual(sommeTableau(tab, 3), 6);
+		}
+
+		TEST_METHOD(TestSomme2) {
+			int tab[] = { 5 };
+			Assert::AreEqual(sommeTableau(tab, 1), 5);
+		}
+
+		TEST_METHOD(TestSomme3) {
+			int tab[] = { -1, 4, -3 };
+			Assert::AreEqual(sommeTableau(tab, 3), 0);
+		}
+
+		TEST_METHOD(TestSomme4) {
+			Assert::AreEqual(sommeTableau(NULL, 0), 0);
+		}
+
+		TEST_METHOD(TestSomme5) {
+			Assert::AreEqual(sommeTableau(NULL, 5), 0);
+		}
+
+		TEST_METHOD(TestSomme6) {
+			int tab[] = { 1, 2, 3 };
+			Assert::AreEqual(sommeTableau(tab, 0), 0);
+		}
 	};
 }
